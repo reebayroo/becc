@@ -1,0 +1,130 @@
+<html>
+  {{template "header.tmpl.html"}}
+<body>
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Benzinga Exchange Code Challenge</a>
+
+      </div>
+      <form class="navbar-form pull-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Symbol"></div>
+        <button type="submit" class="btn btn-default">Lookup</button>
+      </form>
+    </div>
+
+  </nav>
+
+  <div class="alert alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button> <strong>Oops !</strong>
+    Unknown symbol.
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Apple Computer AAPL</h3>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">BUY</div>
+            <div class="panel-body">
+              <h4 align="center">500.00</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">ASK</div>
+            <div class="panel-body">
+              <h4 align="center">505.00</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="Quantity"/>
+        </div>
+
+        <div class="col-md-3 ">
+          <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group"> 
+            <a href="#" class="btn btn-info " role="button">BUY</a> 
+          </div>
+        </div>
+        <div class="col-md-3 ">
+          <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group"> 
+            <a href="#" class="btn btn-warning" role="button">SELL</a> 
+          </div>
+        </div>
+
+      </div>
+
+
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Current Portfolio</h3>
+      </div>
+      <div class="col-sm-6">
+        <h3 class="pull-right">Cash: $100,000.00</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Quantity</th>
+              <th colspan="2">Price Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ford Motor</td>
+              <td>20</td>
+              <td>14.99</td>
+              <td>
+                <a href="#">View Stock</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Ford Motor</td>
+              <td>20</td>
+              <td>14.99</td>
+              <td>
+                <a>View Stock</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Ford Motor</td>
+              <td>20</td>
+              <td>14.99</td>
+              <td>
+                <a>View Stock</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
