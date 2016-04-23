@@ -1,0 +1,26 @@
+{
+  "name": "string-formatter",
+  "version": "0.0.2",
+  "main": "string-formatter.js",
+  "license": "MIT",
+  "ignore": [
+    "*.md",
+    "README",
+    "LICENSE"
+  ],
+  "keywords": [
+    "string",
+    "formatting",
+    "library"
+  ],
+  "homepage": "https://github.com/pandres95/string-formatter",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.2",
+    "commit": "72bdf46b1b889efcb7d74029c53edaac2650d3d6"
+  },
+  "_source": "https://github.com/pandres95/string-formatter.git",
+  "_target": "~0.0.2",
+  "_originalSource": "string-formatter"
+}

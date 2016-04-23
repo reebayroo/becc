@@ -1,0 +1,16 @@
+{
+  "name": "string-formatter",
+  "version": "0.0.2",
+  "main": "string-formatter.js",
+  "license": "MIT",
+  "ignore": [
+    "*.md",
+    "README",
+    "LICENSE"
+  ],
+  "keywords": [
+    "string",
+    "formatting",
+    "library"
+  ]
+}
