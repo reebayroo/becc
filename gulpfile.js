@@ -14,6 +14,7 @@ var src = './static/public/';
 ///Users/pribeiro/dev/becc/src/github.com/reebayroo/becc/static/main.css
 var jsFiles = [
     src + 'app/app.js',
+    src + 'app/becc.controller.js',
     src + 'app/constants/**/*.js',
     src + 'app/config/**/*.js',
     src + 'app/modules/**/*.js',
@@ -50,7 +51,7 @@ gulp.task('test', function () {
         browsers: ["PhantomJS"]
     });
 });
-gulp.task('test-watch', function () {
+gulp.task('test-watch', ['lint'], function () {
     karma.start({
         configFile: __dirname + '/karma.conf.js',
         singleRun: false,

@@ -15,46 +15,24 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './src/test/js/app-test.js',
-      './src/main/resources/static/public/app/**/*.js',
-      './src/test/js/vendor/angular-resource.js',
-      './src/test/js/vendor/angular-mocks.js',
-      './src/test/js/specs/*.js',
-      './src/test/js/specs/coffee/*.coffee'
+      './static/public/app/app.js',
+      './static/public/app/**/*.js',
+      './specs/lib/angular-resource.js',
+      './specs/lib/angular-mocks.js',
+      './specs/app/coffee/**/*.coffee'
 
     ],
 
     bowerPackages: [
       "jquery",
-      "angular",
-      "angular-messages",
-      "datatables",
-      "angular-animate",
-      "v-accordion",
-      "angular-translate",
-      "ng-dialog",
-      "angular-truncate",
-      "angular-translate-loader-static-files",
-      "angular-ui-router",
-      "checklist-model",
-      "angular-sanitize",
-      "angular-datatables",
-      "lodash",
-      "angular-bootstrap",
-      "angular-bootstrap-calendar",
-      "angular-ui-calendar",
-      "string-formatter",
-      "ui-select",
-      "ng-table",
-      "console-polyfill",
-      "ng-file-upload"
+      "angular"
     ],
 
     // list of files to exclude
     exclude: [
-      './src/main/resources/static/public/app/app.js',
-      './src/main/resources/static/public/app/config/**/*',
+      './static/public/app/config/**/*',
     ],
+    // './static/public/app/app.js',
 
 
     // preprocess matching files before serving them to the browser
