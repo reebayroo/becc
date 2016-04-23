@@ -17,6 +17,7 @@ module.exports = function (config) {
     files: [
       './static/public/app/app.js',
       './static/public/app/**/*.js',
+      './static/public/libs/lodash/lodash.js',
       './specs/lib/angular-resource.js',
       './specs/lib/angular-mocks.js',
       './specs/app/coffee/**/*.coffee'

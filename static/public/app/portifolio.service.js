@@ -16,13 +16,22 @@
             validate(stockInfo, "stockInfo");
             validate(portfolio, "portfolio");
             validate(portfolio.stocks, "portfolio.stocks");
-            portfolio.stocks.push(stockInfo);
+
+            addOrCreate(stockInfo, portfolio)
 
             portfolio.availableCash -= (stockInfo.quantity * stockInfo.pricePaid);
         }
 
-        function addToCurrent(stockInfo, portfolio) {
-            //var current = _.find(portfolio.stocks, { symbol : item.symbol });
+        function addOrCreate(stockInfo, portfolio) {
+            var current = _.find(portfolio.stocks, {
+                symbol: stockInfo.symbol
+            });
+            if (!current) {
+                portfolio.stocks.push(stockInfo);
+            } else {
+                current.pricePaid = stockInfo.pricePaid
+                current.quantity += stockInfo.quantity;
+            }
 
         }
 
