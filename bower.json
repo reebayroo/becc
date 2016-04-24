@@ -1,0 +1,30 @@
+{
+    "name": "bcce",
+    "description": "Benzinga Code Challenge Exchange",
+    "main": "gulpfile.js",
+    "authors": [
+        "Pedro Ribeiro <pedroribeirojr@gmail.com>"
+    ],
+    "license": "ISC",
+    "homepage": "https://github.com/reebayroo/becc.git",
+    "moduleType": [],
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "1.11.2",
+        "angular": "~1.4.7",
+        "angular-ui-router": "~0.2.15",
+        "lodash": "~3.10.1",
+        "string-formatter": "~0.0.2"
+    },
+    "resolutions": {
+        "jquery": "1.11.2",
+        "angular": "~1.4.7"
+    }
+}
