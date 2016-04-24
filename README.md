@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/reebayroo/becc.svg)](https://travis-ci.org/reebayroo/becc)
 
-# becc
+# BECC
 
 ## Dependencies 
 - node
