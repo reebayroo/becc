@@ -8,35 +8,43 @@
         <a class="navbar-brand" href="#">Benzinga Exchange Code Challenge</a>
 
       </div>
-      <form class="navbar-form pull-right" role="search">
+      <form class="navbar-form pull-right" role="search" name="f" novalidate>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Enter Symbol"></div>
-        <button type="submit" class="btn btn-default">Lookup</button>
+          <input type="text" class="form-control" placeholder="Enter Symbol" ng-model="symbol" required></div>
+        <button type="submit" class="btn btn-default" 
+                ng-click="search()"
+                ng-disabled="f.$invalid">Lookup</button>
       </form>
     </div>
 
   </nav>
 
-  <div class="alert alert-danger" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <div class="alert alert-danger" role="alert" ng-if="errorMessage">
+    <button type="button" class="close"  aria-label="Close" ng-click="clearErrorMessage()">
       <span aria-hidden="true">&times;</span>
     </button> <strong>Oops !</strong>
-    Unknown symbol.
+    <span ng-bind="errorMessage"></span>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-        <h3>Apple Computer AAPL</h3>
+      <div class="col-md-4" ng-if="hasStockInfo()" >
+        <h4>
+          <span ng-bind="stockInfo.name"></span>
+          &nbsp;
+          <span  class="label label-default" ng-bind="stockInfo.symbol"></span>
+        </h4>
 
         <div class="row">
           <div class="col-md-6">
             <div class="panel panel-default">
-              <div class="panel-heading">BUY</div>
+              <div class="panel-heading">BID</div>
               <div class="panel-body">
-                <h4 align="center">500.00</h4>
+                <h4 align="center">
+                  <span ng-bind="stockInfo.bidPrice | currency  "></span>
+                </h4>
               </div>
             </div>
           </div>
@@ -44,42 +52,51 @@
             <div class="panel panel-default">
               <div class="panel-heading">ASK</div>
               <div class="panel-body">
-                <h4 align="center">505.00</h4>
+                <h4 align="center">
+                  <span ng-bind="stockInfo.askPrice | currency"></span>
+                </h4>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
+        <form  name="formTransaction" novalidate>
+          <div class="row">
 
-          <div class="col-md-6">
-            <input type="text" class="form-control" id="exampleInputName2" placeholder="Quantity"/>
-          </div>
-
-          <div class="col-md-3 ">
-            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-              <a href="#" class="btn btn-info " role="button">BUY</a>
+            <div class="col-md-6">
+              <input type="number" class="form-control" placeholder="Quantity" ng-model="transactionInfo.quantity" step="1" required/>
             </div>
-          </div>
-          <div class="col-md-3 ">
-            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-              <a href="#" class="btn btn-warning" role="button">SELL</a>
+
+            <div class="col-md-3 ">
+              <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <a href="javascript:void(0)" ng-click="buy()" class="btn btn-info " role="button" ng-disabled="formTransaction.$invalid">BUY</a>
+              </div>
             </div>
+            <div class="col-md-3 ">
+              <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                <a href="javascript:void(0)" ng-click="sell()"  class="btn btn-warning" role="button" ng-disabled="formTransaction.$invalid">SELL</a>
+              </div>
+            </div>
+
           </div>
-
-        </div>
-
+        </form>
       </div>
-      <div class="col-md-8">
+      <div ng-class="hasStockInfo() ? 'col-md-8' : 'col-md-offset-3 col-md-6'">
         <div class="row">
           <div class="col-sm-6">
-            <h3>Current Portfolio</h3>
+            <h4>Current Portfolio</h4>
           </div>
           <div class="col-sm-6">
-            <h3 class="pull-right">Cash: $100,000.00</h3>
+            <h4 class="pull-right">
+              Cash:
+              <span ng-bind="portfolio.availableCash | currency"></span>
+            </h4>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12" ng-if="!portfolio.stocks.length">
+            <h5>You have no items in your portfolio.</h5>
+          </div>
+          <div class="col-sm-12" ng-if="!!portfolio.stocks.length">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -89,28 +106,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Ford Motor</td>
-                  <td>20</td>
-                  <td>14.99</td>
+                <tr ng-repeat="item in portfolio.stocks">
                   <td>
-                    <a href="#">View Stock</a>
+                    <span ng-bind="item.name"></span>
+                    &nbsp;(
+                    <span ng-bind="item.symbol"></span>
+                    )
                   </td>
-                </tr>
-                <tr>
-                  <td>Ford Motor</td>
-                  <td>20</td>
-                  <td>14.99</td>
                   <td>
-                    <a>View Stock</a>
+                    <span ng-bind="item.quantity"></span>
                   </td>
-                </tr>
-                <tr>
-                  <td>Ford Motor</td>
-                  <td>20</td>
-                  <td>14.99</td>
                   <td>
-                    <a>View Stock</a>
+                    <span ng-bind="item.pricePaid | currency "></span>
+                  </td>
+                  <td>
+                    <a href="javascript:void(0)" ng-click="select(item)">View Stock</a>
                   </td>
                 </tr>
               </tbody>

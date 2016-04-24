@@ -18,6 +18,7 @@ module.exports = function (config) {
       './static/public/app/app.js',
       './static/public/app/**/*.js',
       './static/public/libs/lodash/lodash.js',
+      './static/public/libs/ngstorage/ngStorage.js',
       './static/public/libs/string-formatter/string-formatter.js',
       './specs/lib/angular-resource.js',
       './specs/lib/angular-mocks.js',

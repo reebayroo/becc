@@ -62,6 +62,12 @@ describe 'The Portifolio Service module... ', ->
  
                 it "and updating portfolio's available cash ", ->
                     expect(portfolio.availableCash).toEqual(600 - (40 * 12))
+                it "throwing an error if there is not enough money", ->
+                    theCall = () -> 
+                        portfolio.availableCash = 10
+                        portfolioService.buy  newStockInfo, portfolio
+                    expect(theCall).toThrowError("Not enough cash");
+
 
         describe 'sell ', ->
             stockInfo = undefined
