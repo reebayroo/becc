@@ -1,0 +1,36 @@
+{
+   "name": "becc",
+   "version": "1.0.0",
+   "description": "Benzinga Code Challenge",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/reebayroo/becc.git"
+   },
+   "author": "pribeiro",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/reebayroo/becc/issues"
+   },
+   "homepage": "https://github.com/reebayroo/becc#readme",
+   "devDependencies": {
+      "gulp": "^3.9.0",
+      "gulp-jshint": "^1.11.2",
+      "gulp-inject": "^3.0.0",
+      "gulp-main-bower-files": "^1.2.4",
+      "jasmine-core": "^2.3.4",
+      "karma": "^0.13.10",
+      "karma-bower": "^1.0.1",
+      "karma-coffee-preprocessor": "^0.3.0",
+      "karma-jasmine": "^0.3.6",
+      "karma-jasmine-diff-reporter": "^0.3.0",
+      "karma-phantomjs-launcher": "^0.2.1",
+      "karma-spec-reporter": "0.0.20",
+      "main-bower-files": "^2.9.0",
+      "phantomjs": "^1.9.18",
+      "wiredep": "^2.2.2"
+   }
+}
