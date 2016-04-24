@@ -6,7 +6,11 @@
 - heroku toolkit
 - gulp
 
+## How to run test
+gulp 
+
 ## Run JSLint
-- gulp
+
+- gulp test
 
 
