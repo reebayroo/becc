@@ -21,9 +21,6 @@ func main() {
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl.html", nil)
-	})
-	router.GET("/becc", func(c *gin.Context) {
 		w := c.Writer
 		w.Header().Set("Access-Control-Allow-Origin", "data.benzinga.com")
 		c.HTML(http.StatusOK, "becc.tmpl.html", nil)

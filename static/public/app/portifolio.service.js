@@ -20,9 +20,9 @@
             validate(stockInfo.quantity, "stockInfo.quantity is required");
             validate(stockInfo.pricePaid, "stockInfo.pricePaid is required");
 
-            addOrCreate(stockInfo, portfolio);
             var remainingCash = (stockInfo.quantity * stockInfo.pricePaid);
             validate(portfolio.availableCash > remainingCash, "Not enough cash");
+            addOrCreate(stockInfo, portfolio);
             portfolio.availableCash -= remainingCash;
         }
 
