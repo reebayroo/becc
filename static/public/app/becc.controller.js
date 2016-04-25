@@ -18,7 +18,7 @@
 
 		// Model
 		$scope.errorMessage = undefined;
-		$scope.symbol = "JNJ";
+		$scope.symbol = undefined;
 		$scope.portfolio = undefined;
 		$scope.stockInfo = undefined;
 		$scope.transactionInfo = {
