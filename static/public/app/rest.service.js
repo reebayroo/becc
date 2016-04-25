@@ -18,7 +18,7 @@
 
             var deferred = $q.defer();
 
-            var url = "http://data.benzinga.com/rest/richquoteDelayed?symbols={0}&callback=JSON_CALLBACK".format(searchParam);
+            var url = "//data.benzinga.com/rest/richquoteDelayed?symbols={0}&callback=JSON_CALLBACK".format(searchParam);
             $http.jsonp(url)
                 .success(function (data) {
                     console.log(data);
