@@ -10,6 +10,8 @@
 - gulp
 ## How to run locally
 
+go install github.com/reebayroo/becc/cmd/exchange
+
 heroku local
 
 ## How to run test

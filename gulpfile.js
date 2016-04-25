@@ -14,13 +14,7 @@ var src = './static/public/';
 ///Users/pribeiro/dev/becc/src/github.com/reebayroo/becc/static/main.css
 var jsFiles = [
     src + 'app/app.js',
-    src + 'app/becc.controller.js',
-    src + 'app/constants/**/*.js',
-    src + 'app/config/**/*.js',
-    src + 'app/modules/**/*.js',
-    src + 'app/directives/**/*.js',
-    src + 'app/filters/**/*.js',
-    src + 'app/services/*.js'
+    src + 'app/**/*.js',
 ];
 
 gulp.task('lint', function () {

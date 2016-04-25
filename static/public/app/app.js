@@ -5,7 +5,7 @@
 	 * App Definition & Module Includes
 	 */
 	angular
-		.module('ExchangeApp', [])
+		.module('ExchangeApp', ['ngStorage'])
 		.run([
 			'$rootScope',
 			'$location',

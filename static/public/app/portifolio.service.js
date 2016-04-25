@@ -14,17 +14,22 @@
         };
 
         function buy(stockInfo, portfolio) {
-            validate(stockInfo, "stockInfo");
-            validate(portfolio, "portfolio");
-            validate(portfolio.stocks, "portfolio.stocks");
+            validate(stockInfo, "stockInfo is required");
+            validate(portfolio, "portfolio is required");
+            validate(portfolio.stocks, "portfolio.stocks is required");
+            validate(stockInfo.quantity, "stockInfo.quantity is required");
+            validate(stockInfo.pricePaid, "stockInfo.pricePaid is required");
 
-            addOrCreate(stockInfo, portfolio)
-
-            portfolio.availableCash -= (stockInfo.quantity * stockInfo.pricePaid);
+            addOrCreate(stockInfo, portfolio);
+            var remainingCash = (stockInfo.quantity * stockInfo.pricePaid);
+            validate(portfolio.availableCash > remainingCash, "Not enough cash");
+            portfolio.availableCash -= remainingCash;
         }
 
         function sell(sellInfo, portfolio) {
             validate(sellInfo, "sellInfo");
+            validate(sellInfo.bidPrice, "sellInfo.bidPrice");
+            validate(sellInfo.quantity, "sellInfo.quantity");
             validate(portfolio, "portfolio");
             validate(portfolio.stocks, "portfolio.stocks");
 
@@ -34,7 +39,7 @@
             current.quantity -= sellInfo.quantity;
             portfolio.availableCash += (sellInfo.bidPrice * sellInfo.quantity);
             if (current.quantity < 1) {
-                _.pull(portfolio.stocks, current)
+                _.pull(portfolio.stocks, current);
             }
 
         }
@@ -52,7 +57,7 @@
             if (!current) {
                 portfolio.stocks.push(stockInfo);
             } else {
-                current.pricePaid = stockInfo.pricePaid
+                current.pricePaid = stockInfo.pricePaid;
                 current.quantity += stockInfo.quantity;
             }
 
