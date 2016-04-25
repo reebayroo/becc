@@ -2,25 +2,32 @@
 
 # BECC
 
-## Dependencies 
-- node
-- npm
-- bower
-- heroku toolkit
-- gulp
+## Software Requirement 
+* node 0.12+
+* go 1.6+
+* npm 2.14+
+* bower 1.7+
+* heroku toolkit
+* gulp 3.9+
+
 ## How to run locally
-
+```
+go get github.com/reebayroo/becc/cmd/exchange/...
 go install github.com/reebayroo/becc/cmd/exchange
-
 heroku local
+```
 
-## How to run test
+## Run tests
+```
 gulp test
+```
 
-## How to watch tests
+## Watch tests
+```
 gulp watch-test
+```
 
 ## Run JSLint
-- gulp 
-
-
+```
+gulp 
+```
