@@ -32,6 +32,8 @@
 		$scope.buy = buy;
 		$scope.sell = sell;
 		$scope.select = select;
+		$scope.activeItem = activeItem;
+		$scope.invalidTransaction = invalidTransaction;
 
 		refreshModel();
 
@@ -53,7 +55,7 @@
 
 		function doSearch(symbol) {
 			$scope.stockInfo = null;
-			RestService.search(symbol)
+			RestService.search(symbol.toUpperCase())
 				.then(function (stockInfo) {
 					clearErrorMessage();
 					$scope.stockInfo = stockInfo;
@@ -69,6 +71,10 @@
 			$scope.errorMessage = null;
 		}
 
+		function invalidTransaction(formTransaction) {
+			return formTransaction.$invalid || $scope.transactionInfo.quantity < 1;
+		}
+
 		function buy() {
 			var info = {
 				symbol: $scope.stockInfo.symbol,
@@ -80,6 +86,10 @@
 				PortfolioService.buy(info, $scope.portfolio);
 				AccountService.save($scope.portfolio);
 			});
+		}
+
+		function activeItem(symbol) {
+			return $scope.stockInfo && $scope.stockInfo.symbol === symbol;
 		}
 
 		function sell() {

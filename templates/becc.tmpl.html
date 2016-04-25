@@ -68,12 +68,12 @@
 
             <div class="col-md-3 ">
               <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                <a href="javascript:void(0)" ng-click="buy()" class="btn btn-info " role="button" ng-disabled="formTransaction.$invalid">BUY</a>
+                <a href="javascript:void(0)" ng-click="buy()" class="btn btn-info " role="button" ng-disabled="invalidTransaction(formTransaction)">BUY</a>
               </div>
             </div>
             <div class="col-md-3 ">
               <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                <a href="javascript:void(0)" ng-click="sell()"  class="btn btn-warning" role="button" ng-disabled="formTransaction.$invalid">SELL</a>
+                <a href="javascript:void(0)" ng-click="sell()"  class="btn btn-warning" role="button" ng-disabled="invalidTransaction(formTransaction)">SELL</a>
               </div>
             </div>
 
@@ -106,7 +106,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="item in portfolio.stocks">
+                <tr ng-repeat="item in portfolio.stocks" ng-class="activeItem(item.symbol)?'active': ''">
                   <td>
                     <span ng-bind="item.name"></span>
                     &nbsp;(
