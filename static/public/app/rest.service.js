@@ -15,25 +15,37 @@
         };
 
         function search(searchParam) {
-
             var deferred = $q.defer();
-
-            var url = "//data.benzinga.com/rest/richquoteDelayed?symbols={0}&callback=JSON_CALLBACK".format(searchParam);
-            $http.jsonp(url)
+            $http(request("/search?symbol={0}".format(searchParam)))
                 .success(function (data) {
-                    console.log(data);
-                    var value = data[searchParam];
-                    if (value) {
-                        deferred.resolve(value);
-                    } else {
-                        deferred.reject("Unknown Symbol: {0}".format(searchParam));
-                    }
+                    deferred.resolve(adaptor(data));
                 })
                 .catch(function (error) {
-                    deferred.reject(error);
+                    deferred.reject(error.data.error);
                 });
             return deferred.promise;
-        }
 
+            function request(url){
+                return  {
+                    method: "GET",
+                    url: url,
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                };
+            }
+            function adaptor(symbol) {
+                 symbol.symbol = symbol.Symbol;
+                 symbol.name = symbol.Name;
+                 symbol.open = symbol.Open;
+                 symbol.high = symbol.High;
+                 symbol.low = symbol.Low;
+                 symbol.bidPrice = symbol.BidPrice;
+                 symbol.askPrice = symbol.AskPrice;
+                 symbol.askSize = symbol.AskSize;
+                 symbol.bidSize = symbol.BidSize;
+                 return symbol;
+             }
+        }
     }
 })(angular);
